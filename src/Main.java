@@ -9,6 +9,7 @@ public class Main {
 		
 		Deck deck = new Deck();
 		Player player = new Player();
+		Dealer dealer = new Dealer();
 		//deck.showDeck();
 		
 		//Begin game
@@ -26,6 +27,7 @@ public class Main {
 					System.out.println("You do not have sufficient funds.");
 				}
 			}
+
 			start = false;
 		}
 		

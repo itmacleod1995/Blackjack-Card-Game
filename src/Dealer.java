@@ -13,6 +13,18 @@ public class Dealer {
 		hand = new ArrayList<Card>();
 	}
 	
+	/**
+	 * Method that has the dealer reveal all cards in the deck
+	 */
+	public void showDeck() {
+		int count = 0;
+		for(Card card : this.deck.getDeck()) {
+			card.showCard();
+			count++;
+		}
+		
+		System.out.println("total card count: " + count);
+	}
 	
 
 }

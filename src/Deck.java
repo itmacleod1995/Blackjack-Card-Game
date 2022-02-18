@@ -96,5 +96,13 @@ public class Deck {
 		
 		System.out.println("total card count: " + count);
 	}
+	
+	/**
+	 * Method that returns the deck
+	 * @return deck
+	 */
+	public Card[] getDeck() {
+		return this.deck;
+	}
 
 }

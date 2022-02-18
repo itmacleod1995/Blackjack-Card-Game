@@ -88,6 +88,12 @@ public class Deck {
 		return this.deck;
 	}
 	
-	
+	/**
+	 * Method that removes card from deck
+	 * @param card card to be removed
+	 */
+	public void removeCardFromDeck(Card card) {
+		this.deck.remove(card);
+	}
 
 }

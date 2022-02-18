@@ -26,6 +26,22 @@ public class Dealer {
 		System.out.println("total card count: " + count);
 	}
 	
+
+	public void deal() {
+		//random number generation to randomly select 1-52 inclusive
+		Random rand = new Random();
+		
+		//deal card 1
+		Card card1 = this.deck.getDeck().get(rand.nextInt(53));
+		this.deck.removeCardFromDeck(card1);
+		
+		//deal card 2
+		Card card2 = this.deck.getDeck().get(rand.nextInt(53));
+		this.deck.removeCardFromDeck(card2);
+		
+		System.out.println("You are dealt: " + card1.getSuite() + "" + card1.getValue() + ", " + card2.getSuite() + "" + card2.getValue());
+	}
+	
 	
 
 }

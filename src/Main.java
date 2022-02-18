@@ -6,7 +6,7 @@ public class Main {
 		System.out.println("Welcome to Blackjack!\n\n");
 		
 		Deck deck = new Deck();
-		//deck.showDeck();
+		deck.showDeck();
 		
 		//Begin game
 		System.out.println("You are starting with $500. Would you like to play a hand? ");

@@ -3,7 +3,6 @@ import java.util.*;
 public class Deck {
 	
 	//Member variables
-	private int size;
 	private List<Card> deck;
 	
 	/**
@@ -12,7 +11,6 @@ public class Deck {
 	public Deck() {
 	
 		deck = new ArrayList<Card>();
-		int cardNum = 0;
 		
 		int typeOfCard = 1;
 		while(typeOfCard < 5) { //change this back to 5
@@ -94,6 +92,10 @@ public class Deck {
 	 */
 	public void removeCardFromDeck(Card card) {
 		this.deck.remove(card);
+	}
+	
+	public int getSize() {
+		return this.deck.size();
 	}
 
 }

@@ -25,7 +25,7 @@ public class Dealer {
 			count++;
 		}
 		
-		System.out.println("total card count: " + count);
+		System.out.println("total card count: " + this.deck.getSize());
 	}
 	
 
@@ -34,21 +34,20 @@ public class Dealer {
 		Random rand = new Random();
 		
 		//deal card 1
-		int randomCardNum = rand.nextInt(51) + 1;
-		while(this.cardsDealt.contains(randomCardNum)) {
-			randomCardNum = rand.nextInt(51) + 1;
-		}
-		this.cardsDealt.add(randomCardNum);
+		int randomCardNum = rand.nextInt(deck.getSize());
+		
+		randomCardNum = rand.nextInt(deck.getSize());
+		
+		//this.cardsDealt.add(randomCardNum);
 		Card card1 = this.deck.getDeck().get(randomCardNum);
 		
 		this.deck.removeCardFromDeck(card1);
 		
 		//deal card 2
-		int randomCardNum2 = rand.nextInt(51) + 1;
-		while(this.cardsDealt.contains(randomCardNum2)) {
-			randomCardNum2 = rand.nextInt(51) + 1;
-		}
-		this.cardsDealt.add(randomCardNum2);
+		int randomCardNum2 = rand.nextInt(deck.getSize());
+		randomCardNum2 = rand.nextInt(deck.getSize());
+		
+		//this.cardsDealt.add(randomCardNum2);
 		Card card2 = this.deck.getDeck().get(randomCardNum2);
 		
 		this.deck.removeCardFromDeck(card2);

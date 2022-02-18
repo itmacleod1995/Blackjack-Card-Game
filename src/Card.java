@@ -21,5 +21,21 @@ public class Card {
 	public void showCard() {
 		System.out.println(this.value + "" + this.suite);
 	}
+	
+	/**
+	 * Method to return the card's suite
+	 * @return suite
+	 */
+	public String getSuite() {
+		return this.suite;
+	}
+	
+	/**
+	 * Method to return card's value
+	 * @return value
+	 */
+	public String getValue() {
+		return this.value;
+	}
 
 }

@@ -10,7 +10,7 @@ public class Main {
 		Deck deck = new Deck();
 		Player player = new Player();
 		Dealer dealer = new Dealer();
-		//deck.showDeck();
+		deck.showDeck();
 		
 		//Begin game
 		System.out.println("You are starting with $500. Would you like to play a hand? ");
@@ -25,6 +25,8 @@ public class Main {
 					System.out.println("The minimum bet is $1.");
 				}else if(bet > player.getMoney()) {
 					System.out.println("You do not have sufficient funds.");
+				}else {
+					//dealer.deal();
 				}
 			}
 

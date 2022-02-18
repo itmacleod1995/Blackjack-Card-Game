@@ -26,5 +26,6 @@ public class Dealer {
 		System.out.println("total card count: " + count);
 	}
 	
+	
 
 }

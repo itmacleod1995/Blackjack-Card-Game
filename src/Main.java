@@ -8,6 +8,7 @@ public class Main {
 		System.out.println("Welcome to Blackjack!\n\n");
 		
 		Deck deck = new Deck();
+		Player player = new Player();
 		//deck.showDeck();
 		
 		//Begin game
@@ -21,7 +22,9 @@ public class Main {
 				double bet = scan.nextDouble();
 				if(bet < 1.0) {
 					System.out.println("The minimum bet is $1.");
-				}else if(bet < )
+				}else if(bet > player.getMoney()) {
+					System.out.println("You do not have sufficient funds.");
+				}
 			}
 			start = false;
 		}

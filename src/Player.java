@@ -12,5 +12,14 @@ public class Player {
 		money = 500.00;
 		hand = new ArrayList<Card>();
 	}
+	
+	//----Getters and Setters-----//
+	/**
+	 * Method that returns the users total current money
+	 * @return total current money
+	 */
+	public double getMoney() {
+		return this.money;
+	}
 
 }

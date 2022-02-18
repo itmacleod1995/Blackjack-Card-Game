@@ -23,6 +23,7 @@ public class Main {
 				double bet = scan.nextDouble();
 				if(bet < 1.0) {
 					System.out.println("The minimum bet is $1.");
+					start = false;
 				}else if(bet > player.getMoney()) {
 					System.out.println("You do not have sufficient funds.");
 				}else {
@@ -32,7 +33,7 @@ public class Main {
 				}
 			}
 
-			start = false;
+			
 		}
 		
 

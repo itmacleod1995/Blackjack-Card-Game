@@ -86,14 +86,22 @@ public class Dealer {
 		int randomCardNum = rand.nextInt(deck.getSize());
 		Card card = this.deck.getDeck().get(randomCardNum);
 		this.deck.removeCardFromDeck(card);
+		System.out.println("You are dealt " + card.getValue() + card.getSuite());
 		player.getHand().add(card);
 		
 		//check to see if player's hand is over 21
 		int val = 0;
 		for(Card c : player.getHand()) {
-			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J") || c.getValue().equals("A")) {
+			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J")) {
 				val += 10;
-			}else {
+			}else if(c.getValue().equals("A")) {
+				if(val + 10 > 21) { 
+					val += 1; //ace low
+				}else {
+					val += 10; //ace high
+				}
+			}
+			else {
 				val += Integer.parseInt(c.getValue());
 			}
 			

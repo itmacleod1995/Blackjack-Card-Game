@@ -10,7 +10,7 @@ public class Main {
 		//Deck deck = new Deck();
 		Player player = new Player();
 		Dealer dealer = new Dealer();
-		//deck.showDeck(); 
+		//deck.showDeck();  
 		
 		//Begin game
 		System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");

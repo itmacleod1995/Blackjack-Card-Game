@@ -26,7 +26,10 @@ public class Dealer {
 		System.out.println("total card count: " + this.deck.getSize());
 	}
 	
-
+	/**
+	 * Method that deals the initial two cards to both player and dealer
+	 * @param player player that is playing
+	 */
 	public void deal(Player player) {
 		//random number generation to randomly select 1-52 inclusive
 		Random rand = new Random();

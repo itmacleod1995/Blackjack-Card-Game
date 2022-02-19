@@ -4,7 +4,6 @@ public class Dealer {
 	//instance variables
 	private Deck deck;
 	private List<Card> hand;
-	private HashSet<Integer> cardsDealt;
 	
 	/**
 	 * Constructor
@@ -12,7 +11,6 @@ public class Dealer {
 	public Dealer() {
 		deck = new Deck();
 		hand = new ArrayList<Card>();
-		cardsDealt = new HashSet<>();
 	}
 	
 	/**
@@ -36,7 +34,7 @@ public class Dealer {
 		//deal card 1
 		int randomCardNum = rand.nextInt(deck.getSize());
 		
-		randomCardNum = rand.nextInt(deck.getSize());
+		//randomCardNum = rand.nextInt(deck.getSize());
 		
 		//this.cardsDealt.add(randomCardNum);
 		Card card1 = this.deck.getDeck().get(randomCardNum);
@@ -45,7 +43,7 @@ public class Dealer {
 		
 		//deal card 2
 		int randomCardNum2 = rand.nextInt(deck.getSize());
-		randomCardNum2 = rand.nextInt(deck.getSize());
+		//randomCardNum2 = rand.nextInt(deck.getSize());
 		
 		//this.cardsDealt.add(randomCardNum2);
 		Card card2 = this.deck.getDeck().get(randomCardNum2);
@@ -53,6 +51,28 @@ public class Dealer {
 		this.deck.removeCardFromDeck(card2);
 		
 		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite());
+		
+		
+		//deal card #3 for dealer
+		int randomCardNum3 = rand.nextInt(deck.getSize());
+		
+		
+		Card card3 = this.deck.getDeck().get(randomCardNum3);
+				
+		this.deck.removeCardFromDeck(card3);
+				
+		//deal card #4 for dealer
+		int randomCardNum4 = rand.nextInt(deck.getSize());
+		
+		Card card4 = this.deck.getDeck().get(randomCardNum4);
+				
+		this.deck.removeCardFromDeck(card4);
+		this.hand.add(card3);
+		this.hand.add(card4);
+		
+		System.out.println("The dealer is dealt: " + card3.getValue() + "" + card3.getSuite() + ", " + "Unknown");
+		
+	
 	}
 	
 	

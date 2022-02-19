@@ -94,6 +94,10 @@ public class Deck {
 		this.deck.remove(card);
 	}
 	
+	/**
+	 * Method that gets the current deck size
+	 * @return size of deck
+	 */
 	public int getSize() {
 		return this.deck.size();
 	}

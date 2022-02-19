@@ -27,28 +27,32 @@ public class Dealer {
 	}
 	
 
-	public void deal() {
+	public void deal(Player player) {
 		//random number generation to randomly select 1-52 inclusive
 		Random rand = new Random();
 		
-		//deal card 1
+		/**
+		 * Deal card 1 for player
+		 */
+		
 		int randomCardNum = rand.nextInt(deck.getSize());
 		
-		//randomCardNum = rand.nextInt(deck.getSize());
-		
-		//this.cardsDealt.add(randomCardNum);
 		Card card1 = this.deck.getDeck().get(randomCardNum);
 		
 		this.deck.removeCardFromDeck(card1);
 		
-		//deal card 2
+		
+		/**
+		 * Deal card 2 for player
+		 */
 		int randomCardNum2 = rand.nextInt(deck.getSize());
-		//randomCardNum2 = rand.nextInt(deck.getSize());
 		
-		//this.cardsDealt.add(randomCardNum2);
+		
 		Card card2 = this.deck.getDeck().get(randomCardNum2);
-		
 		this.deck.removeCardFromDeck(card2);
+		
+		player.getHand().add(card1);
+		player.getHand().add(card2);
 		
 		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite());
 		

@@ -13,7 +13,7 @@ public class Main {
 		//deck.showDeck(); 
 		
 		//Begin game
-		System.out.println("You are starting with $500. Would you like to play a hand? ");
+		System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");
 		String response = scan.next();
 		if(response.equals("yes")) {
 			boolean start = true;
@@ -26,13 +26,19 @@ public class Main {
 				}else if(bet > player.getMoney()) {
 					System.out.println("You do not have sufficient funds.");
 				}else {
-					dealer.deal();
+					dealer.deal(player);
 					boolean hitOrStay = true;
 					while(hitOrStay) {
 						System.out.println("Would you like to hit or stay?");
 						response = scan.next();
 						if(!response.toLowerCase().equals("hit") && !response.toLowerCase().equals("stay")) {
 							System.out.println("That is not a valid option.");
+						}else if(response.equals("hit")) {
+							for(Card card : player.getHand()) {
+								System.out.println(card.getValue() + "" + card.getSuite());
+								hitOrStay = false;
+								start = false;
+							}
 						}
 					}
 					

@@ -27,8 +27,16 @@ public class Main {
 					System.out.println("You do not have sufficient funds.");
 				}else {
 					dealer.deal();
-					System.out.println(" ");
-					dealer.showDeck();
+					boolean hitOrStay = true;
+					while(hitOrStay) {
+						System.out.println("Would you like to hit or stay?");
+						response = scan.next();
+						if(!response.toLowerCase().equals("hit") && !response.toLowerCase().equals("stay")) {
+							System.out.println("That is not a valid option.");
+						}
+					}
+					
+					
 				}
 			}
 		}

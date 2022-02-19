@@ -78,8 +78,33 @@ public class Dealer {
 		this.hand.add(card4);
 		
 		System.out.println("The dealer is dealt: " + card3.getValue() + "" + card3.getSuite() + ", " + "Unknown");
-		
+	}
 	
+	public int dealSingleCard(Player player) {
+		//random number generation to randomly select 1-52 inclusive
+		Random rand = new Random();
+		int randomCardNum = rand.nextInt(deck.getSize());
+		Card card = this.deck.getDeck().get(randomCardNum);
+		this.deck.removeCardFromDeck(card);
+		player.getHand().add(card);
+		
+		//check to see if player's hand is over 21
+		int val = 0;
+		for(Card c : player.getHand()) {
+			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J") || c.getValue().equals("A")) {
+				val += 10;
+			}else {
+				val += Integer.parseInt(c.getValue());
+			}
+			
+		}
+		
+		if(val > 21) {
+			return 22;
+		}else {
+			return -1;
+		}
+		
 	}
 	
 	

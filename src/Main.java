@@ -34,11 +34,18 @@ public class Main {
 						if(!response.toLowerCase().equals("hit") && !response.toLowerCase().equals("stay")) {
 							System.out.println("That is not a valid option.");
 						}else if(response.equals("hit")) {
-							for(Card card : player.getHand()) {
-								System.out.println(card.getValue() + "" + card.getSuite());
+							int x = dealer.dealSingleCard(player);
+							System.out.print("You now have: ");
+							for(Card c : player.getHand()) {
+								System.out.print(c.getValue() + "" + c.getSuite() + ", ");
+							}
+							System.out.println(" ");
+							if(x > 21) {
+								System.out.println("Your hand value is over 21 and you lose $" + bet + " :(");
 								hitOrStay = false;
 								start = false;
 							}
+							
 						}
 					}
 					

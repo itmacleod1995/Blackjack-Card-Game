@@ -108,6 +108,12 @@ public class Dealer {
 		}
 		
 		if(val > 21) {
+			for(Card c : player.getHand()) {
+				if(c.getValue().equals("A")) {
+					val -= 9;
+					return -1;
+				}
+			}
 			return 22;
 		}else {
 			return -1;

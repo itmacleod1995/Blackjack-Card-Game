@@ -45,6 +45,8 @@ public class Main {
 								System.out.println(" ");
 								if(x > 21) {
 									System.out.println("Your hand value is over 21 and you lose $" + bet + " :(");
+									double currentMoney = player.getMoney();
+									player.setMoney(currentMoney -= bet); 
 									hitOrStay = false;
 									start = false;
 								}
@@ -55,6 +57,9 @@ public class Main {
 						
 					}
 				}
+			}else {
+				System.out.println("Goodbye");
+				beginGame = false;
 			}
 		}
 		

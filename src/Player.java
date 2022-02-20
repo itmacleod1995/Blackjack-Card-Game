@@ -23,6 +23,14 @@ public class Player {
 	}
 	
 	/**
+	 * Setter method that updates the player's money
+	 * @param money player's money
+	 */
+	public void setMoney(double money) {
+		this.money = money;
+	}
+	
+	/**
 	 * Method that returns the player's hand
 	 * @return player's hand
 	 */

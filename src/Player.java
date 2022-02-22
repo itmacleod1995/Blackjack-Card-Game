@@ -37,5 +37,18 @@ public class Player {
 	public List<Card> getHand(){
 		return this.hand;
 	}
+	
+	/**
+	 * Method that returns the total value in the player's hand
+	 * @return total in player's hand
+	 */
+	public double getHandTotal() {
+		double total = 0.0;
+		for(Card c : this.hand) {
+			total += Double.parseDouble(c.getValue());
+		}
+		
+		return total;
+	}
 
 }

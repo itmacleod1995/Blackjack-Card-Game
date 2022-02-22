@@ -93,6 +93,10 @@ public class Main {
 						for(Card c : dealer.showHand()) {
 							System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 						}
+						
+						if(player.getHandTotal() > dealer.getHandTotal()) {
+							System.out.println("Blackjack! You win!");
+						}
 					}
 				}
 				

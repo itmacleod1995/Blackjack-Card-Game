@@ -136,7 +136,14 @@ public class Dealer {
 	public double getHandTotal() {
 		double total = 0.0;
 		for(Card c : this.hand) {
-			total += Double.parseDouble(c.getValue());
+			if(c.getValue().equals("K") || c.getValue().equals("Q") || c.getValue().equals("J")) {
+				total += 10;
+			}else if(c.getValue().equals("A")) {
+				total += 1;
+			}else {
+				total += Double.parseDouble(c.getValue());
+			}
+			
 		}
 		
 		return total;

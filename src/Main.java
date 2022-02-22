@@ -61,6 +61,11 @@ public class Main {
 										System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 									}
 									System.out.println("");
+									//Blackjack
+									if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
+										System.out.println("Blackjack! You win " + bet * 1.5);
+										player.setMoney(player.getMoney() + bet * 1.5 + bet);
+									}
 									hitOrStay = false;
 									start = false;
 								}
@@ -94,8 +99,10 @@ public class Main {
 							System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 						}
 						
-						if(player.getHandTotal() > dealer.getHandTotal()) {
-							System.out.println("Blackjack! You win!");
+						//Blackjack
+						if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
+							System.out.println("Blackjack! You win " + bet * 1.5);
+							player.setMoney(player.getMoney() + bet * 1.5 + bet);
 						}
 					}
 				}

@@ -121,6 +121,14 @@ public class Dealer {
 		
 	}
 	
+	/**
+	 * Method that prints the dealers hand
+	 * @return arraylist of dealers hand
+	 */
+	public List<Card> showHand(){
+		return this.hand;
+	}
+	
 	
 
 }

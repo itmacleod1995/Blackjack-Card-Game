@@ -95,10 +95,10 @@ public class Dealer {
 			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J")) {
 				val += 10;
 			}else if(c.getValue().equals("A")) {
-				if(val + 10 > 21) { 
+				if(val + 11 > 21) { 
 					val += 1; //ace low
 				}else {
-					val += 10; //ace high
+					val += 11; //ace high
 				}
 			}
 			else {

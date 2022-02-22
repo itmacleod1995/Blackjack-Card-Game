@@ -51,7 +51,7 @@ public class Main {
 										player.setMoney(currentMoney -= bet); 
 										hitOrStay = false;
 										start = false;
-										turnCounter = -1;
+										//turnCounter = -1;
 										dealer.showHand().clear();
 										player.getHand().clear();
 									}
@@ -76,7 +76,27 @@ public class Main {
 				
 				turnCounter++;
 			}else {
-				System.out.println("Dealer's turn");
+				System.out.println(" ");
+				System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");
+				String response = scan.next();
+				if(response.toLowerCase().equals("yes")) {
+					System.out.println("Place your bet: ");
+					double bet = scan.nextDouble();
+					if(bet < 1.0) {
+						System.out.println("The minimum bet is $1.");
+							//start = false;
+					}else if(bet > player.getMoney()) {
+						System.out.println("You do not have sufficient funds.");
+					}else {
+						dealer.deal(player);
+						System.out.print("The dealer has: ");
+						for(Card c : dealer.showHand()) {
+							System.out.print(c.getValue() + "" + c.getSuite() + ", ");
+						}
+					}
+				}
+				
+				
 				turnCounter++;
 			}
 			

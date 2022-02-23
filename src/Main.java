@@ -104,6 +104,9 @@ public class Main {
 							System.out.println("Blackjack! You win " + bet * 1.5);
 							player.setMoney(player.getMoney() + bet * 1.5 + bet);
 						}
+						
+						dealer.showHand().clear();
+						player.getHand().clear();
 					}
 				}
 				

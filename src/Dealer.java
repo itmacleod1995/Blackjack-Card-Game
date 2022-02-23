@@ -95,25 +95,14 @@ public class Dealer {
 			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J")) {
 				val += 10;
 			}else if(c.getValue().equals("A")) {
-				if(val + 11 > 21) { 
-					val += 1; //ace low
-				}else {
-					val += 11; //ace high
-				}
+				val += 1;
 			}
 			else {
 				val += Integer.parseInt(c.getValue());
 			}
-			
 		}
 		
 		if(val > 21) {
-			for(Card c : player.getHand()) {
-				if(c.getValue().equals("A")) {
-					val -= 9;
-					return -1;
-				}
-			}
 			return 22;
 		}else {
 			return -1;

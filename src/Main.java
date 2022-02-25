@@ -51,7 +51,7 @@ public class Main {
 										player.setMoney(currentMoney -= bet); 
 										hitOrStay = false;
 										start = false;
-										//turnCounter = -1;
+										
 										dealer.showHand().clear();
 										player.getHand().clear();
 									}
@@ -64,8 +64,26 @@ public class Main {
 									//Blackjack
 									if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
 										System.out.println("Blackjack! You win " + bet * 1.5);
-										player.setMoney(player.getMoney() + bet * 1.5 + bet);
+										player.setMoney(player.getMoney() + (bet * 1.5) + bet);
 									}
+									
+									boolean dealersTurn = true;
+									while(dealersTurn) {
+										//if the dealer's hand has a value of 16 or less, they must hit
+										if(dealer.getHandTotal() > 21) {
+											System.out.println("The dealer busts, you win $" + bet);
+											player.setMoney(player.getMoney() + bet);
+											dealersTurn = false;
+										}
+										if(dealer.getHandTotal() <= 16) {
+											String dealt = dealer.dealSingleCardForDealer();
+											System.out.println("The dealer hits and is dealt: " + dealt);
+										}else if(dealer.getHandTotal() >= 17) {
+											System.out.println("The dealer stays.");
+											dealersTurn = false;
+										}
+									}
+									
 									hitOrStay = false;
 									start = false;
 								}
@@ -79,7 +97,7 @@ public class Main {
 					beginGame = false;
 				}
 				
-				turnCounter++;
+				//turnCounter++;
 			}else {
 				System.out.println(" ");
 				System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");
@@ -105,6 +123,20 @@ public class Main {
 							player.setMoney(player.getMoney() + bet * 1.5 + bet);
 						}
 						
+						boolean dealersTurn = true;
+						while(dealersTurn) {
+							//if the dealer's hand has a value of 16 or less, they must hit
+							if(dealer.getHandTotal() <= 16) {
+								String dealt = dealer.dealSingleCardForDealer();
+								System.out.println("The dealer hits and is dealt " + dealt);
+								dealersTurn = false;
+							}
+						}
+						
+						
+						
+						
+						//clear hands
 						dealer.showHand().clear();
 						player.getHand().clear();
 					}

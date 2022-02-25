@@ -110,6 +110,16 @@ public class Dealer {
 		
 	}
 	
+	public String dealSingleCardForDealer() {
+		Random rand = new Random();
+		int randomCard = rand.nextInt(this.deck.getSize());
+		Card card = this.deck.getDeck().get(randomCard);
+		this.hand.add(card);
+		this.deck.removeCardFromDeck(card);
+		
+		return card.getValue() + "" + card.getSuite(); 
+	}
+	
 	/**
 	 * Method that prints the dealers hand
 	 * @return arraylist of dealers hand

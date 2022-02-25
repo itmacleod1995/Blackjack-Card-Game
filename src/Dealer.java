@@ -80,6 +80,11 @@ public class Dealer {
 		System.out.println("The dealer is dealt: " + card3.getValue() + "" + card3.getSuite() + ", " + "Unknown");
 	}
 	
+	/**
+	 * Method that deals a single card to a player
+	 * @param player player receiving the card
+	 * @return int value that represents whether or not the players hand value is greater than 21
+	 */
 	public int dealSingleCard(Player player) {
 		//random number generation to randomly select 1-52 inclusive
 		Random rand = new Random();
@@ -110,6 +115,10 @@ public class Dealer {
 		
 	}
 	
+	/**
+	 * Method that deals a single card to the dealer
+	 * @return String representation of card dealt to dealer
+	 */
 	public String dealSingleCardForDealer() {
 		Random rand = new Random();
 		int randomCard = rand.nextInt(this.deck.getSize());

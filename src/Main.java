@@ -12,7 +12,6 @@ public class Main {
 		Dealer dealer = new Dealer();
 		
 		boolean beginGame = true;
-		int turnCounter = 0;
 		
 		//Begin game
 		while(beginGame) {

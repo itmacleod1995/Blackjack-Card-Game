@@ -71,7 +71,7 @@ public class Main {
 									//if the dealer's hand has a value of 16 or less, they must hit
 									if(dealer.getHandTotal() > 21) {
 										System.out.println("The dealer busts, you win $" + bet);
-										player.setMoney(player.getMoney() + bet);
+										player.setMoney(player.getMoney() + (bet * 2));
 										dealersTurn = false;
 										dealerBusts = true;
 									}else if(dealer.getHandTotal() <= 16) {
@@ -86,7 +86,7 @@ public class Main {
 								if(dealerBusts == false) {
 									if(player.getHandTotal() > dealer.getHandTotal()) {
 										System.out.println("You win $" + bet + "!");
-										player.setMoney(player.getMoney() + bet);
+										player.setMoney(player.getMoney() + (bet * 2));
 									}else if(player.getHandTotal() < dealer.getHandTotal()) {
 										System.out.println("The dealer wins, you lose $" + bet);
 										player.setMoney(player.getMoney() - bet);
@@ -99,6 +99,11 @@ public class Main {
 								start = false;
 								dealer.showHand().clear();
 								player.getHand().clear();
+								
+								if(player.getMoney() <= 0) {
+									System.out.println("You've ran out of money. Please restart this program to try again. Goodbye.");
+									beginGame = false;
+								}
 							}
 						}
 							

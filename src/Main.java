@@ -68,30 +68,48 @@ public class Main {
 									}
 									
 									boolean dealersTurn = true;
+									boolean dealerBusts = false;
 									while(dealersTurn) {
 										//if the dealer's hand has a value of 16 or less, they must hit
 										if(dealer.getHandTotal() > 21) {
 											System.out.println("The dealer busts, you win $" + bet);
 											player.setMoney(player.getMoney() + bet);
 											dealersTurn = false;
-										}
-										if(dealer.getHandTotal() <= 16) {
+											dealerBusts = true;
+										}else if(dealer.getHandTotal() <= 16) {
 											String dealt = dealer.dealSingleCardForDealer();
 											System.out.println("The dealer hits and is dealt: " + dealt);
-										}else if(dealer.getHandTotal() >= 17) {
+										}else {
 											System.out.println("The dealer stays.");
 											dealersTurn = false;
 										}
 									}
 									
+									if(dealerBusts == false) {
+										if(player.getHandTotal() > dealer.getHandTotal()) {
+											System.out.println("You win $" + bet + "!");
+											player.setMoney(player.getMoney() + bet);
+										}else if(player.getHandTotal() < dealer.getHandTotal()) {
+											System.out.println("The dealer wins, you lose $" + bet);
+											player.setMoney(player.getMoney() - bet);
+										}else {
+											System.out.println("You tie. Your bet has been returned.");
+										}
+									}
+									
 									hitOrStay = false;
 									start = false;
+									dealer.showHand().clear();
+									player.getHand().clear();
 								}
 							}
 							
 							
 						}
 					}
+					
+					
+					
 				}else {
 					System.out.println("Goodbye");
 					beginGame = false;

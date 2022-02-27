@@ -5,7 +5,7 @@ public class Main {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Welcome to Blackjack!\n");
+		System.out.println("\u2666\u2665\u2663\u2660 Blackjack! \u2666\u2665\u2663\u2660\n");
 		
 		//Deck deck = new Deck();
 		Player player = new Player();
@@ -63,58 +63,57 @@ public class Main {
 								if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
 									System.out.println("Blackjack! You win " + bet * 1.5);
 									player.setMoney(player.getMoney() + (bet * 1.5) + bet);
-								}
-									
-								boolean dealersTurn = true;
-								boolean dealerBusts = false;
-								while(dealersTurn) {
-									//if the dealer's hand has a value of 16 or less, they must hit
-									if(dealer.getHandTotal() > 21) {
-										System.out.println("The dealer busts, you win $" + bet);
-										player.setMoney(player.getMoney() + (bet * 2));
-										dealersTurn = false;
-										dealerBusts = true;
-									}else if(dealer.getHandTotal() <= 16) {
-										String dealt = dealer.dealSingleCardForDealer();
-										System.out.println("The dealer hits and is dealt: " + dealt);
-									}else {
-										System.out.println("The dealer stays.");
-										dealersTurn = false;
+								}else {
+									boolean dealersTurn = true;
+									boolean dealerBusts = false;
+									while(dealersTurn) {
+										//if the dealer's hand has a value of 16 or less, they must hit
+										if(dealer.getHandTotal() > 21) {
+											System.out.println("The dealer busts, you win $" + bet);
+											player.setMoney(player.getMoney() + (bet * 2));
+											dealersTurn = false;
+											dealerBusts = true;
+										}else if(dealer.getHandTotal() <= 16) {
+											String dealt = dealer.dealSingleCardForDealer();
+											System.out.println("The dealer hits and is dealt: " + dealt);
+										}else {
+											System.out.println("The dealer stays.");
+											dealersTurn = false;
+										}
+									}
+										
+									if(dealerBusts == false) {
+										if(player.getHandTotal() > dealer.getHandTotal()) {
+											System.out.println("You win $" + bet + "!");
+											player.setMoney(player.getMoney() + (bet * 2));
+										}else if(player.getHandTotal() < dealer.getHandTotal()) {
+											System.out.println("The dealer wins, you lose $" + bet);
+											player.setMoney(player.getMoney() - bet);
+										}else {
+											System.out.println("You tie. Your bet has been returned.");
+										}
 									}
 								}
 									
-								if(dealerBusts == false) {
-									if(player.getHandTotal() > dealer.getHandTotal()) {
-										System.out.println("You win $" + bet + "!");
-										player.setMoney(player.getMoney() + (bet * 2));
-									}else if(player.getHandTotal() < dealer.getHandTotal()) {
-										System.out.println("The dealer wins, you lose $" + bet);
-										player.setMoney(player.getMoney() - bet);
-									}else {
-										System.out.println("You tie. Your bet has been returned.");
-									}
-								}
+								
 									
 								hitOrStay = false;
 								start = false;
 								dealer.showHand().clear();
 								player.getHand().clear();
 								
-								if(player.getMoney() <= 0) {
-									System.out.println("You've ran out of money. Please restart this program to try again. Goodbye.");
-									beginGame = false;
-								}
 							}
-						}
-							
-							
+						}		
 					}
 				}
-					
-				}else {
-					System.out.println("Goodbye");
+				if(player.getMoney() <= 0) {
+					System.out.println("You've ran out of money. Please restart this program to try again. Goodbye.");
 					beginGame = false;
 				}
+			}else {
+				System.out.println("Goodbye");
+				beginGame = false;
+			}
 		}
 	}
 

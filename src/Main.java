@@ -1,4 +1,9 @@
 import java.util.*;
+/**
+ * BlackJack Card Game Project
+ * @author Ian MacLeod
+ * @date 2/27/22
+ */
 public class Main {
 
 	public static void main(String[] args) {

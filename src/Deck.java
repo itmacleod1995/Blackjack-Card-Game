@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * Deck class that constructs the 52 card deck
+ * @author Ian MacLeod
+ * @date 2/28/22
+ *
+ */
 public class Deck {
 	
 	//Member variables

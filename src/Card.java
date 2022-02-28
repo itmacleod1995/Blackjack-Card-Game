@@ -1,4 +1,9 @@
-
+/**
+ * Card class
+ * @author Ian MacLeod
+ * @date 2/28/22
+ *
+ */
 public class Card {
 	
 	//Member variables

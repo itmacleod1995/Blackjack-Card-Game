@@ -48,6 +48,7 @@ public class Main {
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 								}
 								System.out.println(" ");
+								System.out.println("Total hand value " + player.getHandTotal());
 								if(x > 21) {
 									System.out.println("Your hand value is over 21 and you lose $" + bet + " :(");
 									double currentMoney = player.getMoney();
@@ -64,6 +65,7 @@ public class Main {
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 								}
 								System.out.println("");
+								System.out.println("Total hand value " + dealer.getHandTotal());
 								//Blackjack
 								if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
 									System.out.println("Blackjack! You win " + bet * 1.5);

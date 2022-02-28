@@ -48,7 +48,12 @@ public class Player {
 			if(c.getValue().equals("K") || c.getValue().equals("Q") || c.getValue().equals("J")) {
 				total += 10;
 			}else if(c.getValue().equals("A")) {
-				total += 1;
+				if(total + 11 <= 21) {
+					total += 11;
+				}else {
+					total += 1;
+				}
+				
 			}else {
 				total += Double.parseDouble(c.getValue());
 			}

@@ -57,7 +57,7 @@ public class Dealer {
 		player.getHand().add(card1);
 		player.getHand().add(card2);
 		
-		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite());
+		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite() + " Total hand value = " + player.getHandTotal());
 		
 		
 		//deal card #3 for dealer
@@ -100,7 +100,12 @@ public class Dealer {
 			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J")) {
 				val += 10;
 			}else if(c.getValue().equals("A")) {
-				val += 1;
+				if(val + 11 <= 21) {
+					val += 11;
+				}else {
+					val += 1;
+				}
+				
 			}
 			else {
 				val += Integer.parseInt(c.getValue());
@@ -147,7 +152,11 @@ public class Dealer {
 			if(c.getValue().equals("K") || c.getValue().equals("Q") || c.getValue().equals("J")) {
 				total += 10;
 			}else if(c.getValue().equals("A")) {
-				total += 1;
+				if(total + 11 <= 21) {
+					total += 11;
+				}else {
+					total += 1;
+				}
 			}else {
 				total += Double.parseDouble(c.getValue());
 			}

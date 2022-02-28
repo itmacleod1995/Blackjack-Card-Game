@@ -57,7 +57,7 @@ public class Dealer {
 		player.getHand().add(card1);
 		player.getHand().add(card2);
 		
-		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite() + " Total hand value = " + player.getHandTotal());
+		System.out.println("You are dealt: " + card1.getValue() + "" + card1.getSuite() + ", " + card2.getValue() + "" + card2.getSuite());
 		
 		
 		//deal card #3 for dealer

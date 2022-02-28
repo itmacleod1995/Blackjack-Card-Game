@@ -35,6 +35,25 @@ public class Main {
 						System.out.println("You do not have sufficient funds.");
 					}else {
 						dealer.deal(player);
+						if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
+							System.out.print("The dealer has: " );
+							for(Card c : dealer.showHand()) {
+								System.out.print(c.getValue() + "" + c.getSuite() + ", ");
+							}
+							System.out.println("");
+							System.out.println("Blackjack! You win " + (bet * 1.5));
+							player.setMoney(player.getMoney() + (bet * 1.5));
+							start = false;
+							player.getHand().clear();
+							dealer.showHand().clear();
+							break;
+						}else if(player.getHandTotal() == 21 && dealer.getHandTotal() == 21) {
+							System.out.println("You both got a natural blackjack! Tie! All bets are returned");
+							start = false;
+							player.getHand().clear();
+							dealer.showHand().clear();
+							break;
+						}
 						boolean hitOrStay = true;
 						while(hitOrStay) {
 							System.out.println("Would you like to hit or stay?");
@@ -48,7 +67,7 @@ public class Main {
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 								}
 								System.out.println(" ");
-								System.out.println("Total hand value " + player.getHandTotal());
+								//System.out.println("Total hand value " + player.getHandTotal());
 								if(x > 21) {
 									System.out.println("Your hand value is over 21 and you lose $" + bet + " :(");
 									double currentMoney = player.getMoney();
@@ -65,42 +84,38 @@ public class Main {
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
 								}
 								System.out.println("");
-								System.out.println("Total hand value " + dealer.getHandTotal());
-								//Blackjack
-								if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
-									System.out.println("Blackjack! You win " + bet * 1.5);
-									player.setMoney(player.getMoney() + (bet * 1.5) + bet);
-								}else {
-									boolean dealersTurn = true;
-									boolean dealerBusts = false;
-									while(dealersTurn) {
-										//if the dealer's hand has a value of 16 or less, they must hit
-										if(dealer.getHandTotal() > 21) {
-											System.out.println("The dealer busts, you win $" + bet);
-											player.setMoney(player.getMoney() + (bet * 2));
-											dealersTurn = false;
-											dealerBusts = true;
-										}else if(dealer.getHandTotal() <= 16) {
-											String dealt = dealer.dealSingleCardForDealer();
-											System.out.println("The dealer hits and is dealt: " + dealt);
-										}else {
-											System.out.println("The dealer stays.");
-											dealersTurn = false;
-										}
-									}
-										
-									if(dealerBusts == false) {
-										if(player.getHandTotal() > dealer.getHandTotal()) {
-											System.out.println("You win $" + bet + "!");
-											player.setMoney(player.getMoney() + (bet * 2));
-										}else if(player.getHandTotal() < dealer.getHandTotal()) {
-											System.out.println("The dealer wins, you lose $" + bet);
-											player.setMoney(player.getMoney() - bet);
-										}else {
-											System.out.println("You tie. Your bet has been returned.");
-										}
+								//System.out.println("Total hand value " + dealer.getHandTotal());
+								
+								boolean dealersTurn = true;
+								boolean dealerBusts = false;
+								while(dealersTurn) {
+									//if the dealer's hand has a value of 16 or less, they must hit
+									if(dealer.getHandTotal() > 21) {
+										System.out.println("The dealer busts, you win $" + bet);
+										player.setMoney(player.getMoney() + bet);
+										dealersTurn = false;
+										dealerBusts = true;
+									}else if(dealer.getHandTotal() <= 16) {
+										String dealt = dealer.dealSingleCardForDealer();
+										System.out.println("The dealer hits and is dealt: " + dealt);
+									}else {
+										System.out.println("The dealer stays.");
+										dealersTurn = false;
 									}
 								}
+										
+								if(dealerBusts == false) {
+									if(player.getHandTotal() > dealer.getHandTotal()) {
+										System.out.println("You win $" + bet + "!");
+										player.setMoney(player.getMoney() + bet);
+									}else if(player.getHandTotal() < dealer.getHandTotal()) {
+										System.out.println("The dealer wins, you lose $" + bet);
+										player.setMoney(player.getMoney() - bet);
+									}else {
+										System.out.println("You tie. Your bet has been returned.");
+									}
+								}
+								
 									
 								
 									

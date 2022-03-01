@@ -2,7 +2,7 @@ import java.util.*;
 /**
  * BlackJack Card Game Project
  * @author Ian MacLeod
- * @date 2/27/22
+ * @date 2/27/22 
  */
 public class Main {
 
@@ -20,12 +20,12 @@ public class Main {
 		
 		//Begin game
 		while(beginGame) {
-			System.out.println(" ");
 			System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");
 			String response = scan.next();
 			if(response.equals("yes")) {
 				boolean start = true;
 				while(start) {
+					System.out.println("");
 					System.out.println("Place your bet: ");
 					double bet = scan.nextDouble();
 					if(bet < 1.0) {
@@ -34,6 +34,7 @@ public class Main {
 					}else if(bet > player.getMoney()) {
 						System.out.println("You do not have sufficient funds.");
 					}else {
+						System.out.println("");
 						dealer.deal(player);
 						if(player.getHandTotal() == 21 && dealer.getHandTotal() != 21) {
 							System.out.print("The dealer has: " );
@@ -56,12 +57,14 @@ public class Main {
 						}
 						boolean hitOrStay = true;
 						while(hitOrStay) {
+							System.out.println("");
 							System.out.println("Would you like to hit or stay?");
 							response = scan.next();
 							if(!response.toLowerCase().equals("hit") && !response.toLowerCase().equals("stay")) {
 								System.out.println("That is not a valid option.");
 							}else if(response.equals("hit")) {
 								int x = dealer.dealSingleCard(player);
+								System.out.println("");
 								System.out.print("You now have: ");
 								for(Card c : player.getHand()) { 
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
@@ -69,6 +72,7 @@ public class Main {
 								System.out.println(" ");
 								//System.out.println("Total hand value " + player.getHandTotal());
 								if(x > 21) {
+									System.out.println("");
 									System.out.println("Your hand value is over 21 and you lose $" + bet + " :(");
 									double currentMoney = player.getMoney();
 									player.setMoney(currentMoney -= bet); 
@@ -79,6 +83,7 @@ public class Main {
 									player.getHand().clear();
 								}
 							}else if(response.toLowerCase().equals("stay")) {
+								System.out.println("");
 								System.out.print("The dealer has: ");
 								for(Card c : dealer.showHand()) {
 									System.out.print(c.getValue() + "" + c.getSuite() + ", ");
@@ -107,10 +112,12 @@ public class Main {
 								if(dealerBusts == false) {
 									if(player.getHandTotal() > dealer.getHandTotal()) {
 										System.out.println("You win $" + bet + "!");
+										System.out.println("");
 										player.setMoney(player.getMoney() + bet);
 									}else if(player.getHandTotal() < dealer.getHandTotal()) {
 										System.out.println("The dealer wins, you lose $" + bet);
 										player.setMoney(player.getMoney() - bet);
+										System.out.println("");
 									}else {
 										System.out.println("You tie. Your bet has been returned.");
 									}

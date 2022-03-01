@@ -107,12 +107,7 @@ public class Dealer {
 			if(c.getValue().equals("Q") || c.getValue().equals("K") || c.getValue().equals("J")) {
 				val += 10;
 			}else if(c.getValue().equals("A")) {
-				if(val + 11 <= 21) {
-					val += 11;
-				}else {
-					val += 1;
-				}
-				
+				val += 1;
 			}
 			else {
 				val += Integer.parseInt(c.getValue());
@@ -159,11 +154,7 @@ public class Dealer {
 			if(c.getValue().equals("K") || c.getValue().equals("Q") || c.getValue().equals("J")) {
 				total += 10;
 			}else if(c.getValue().equals("A")) {
-				if(total + 11 <= 21) {
-					total += 11;
-				}else {
-					total += 1;
-				}
+				total += 1;
 			}else {
 				total += Double.parseDouble(c.getValue());
 			}

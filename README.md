@@ -7,3 +7,5 @@ Blackjack is a game that involves the player and the dealer. At the beginning of
 <img width="464" alt="Screen Shot 2022-03-01 at 2 46 42 PM" src="https://user-images.githubusercontent.com/54502182/156238023-68da2121-123d-4e30-9d52-cd5d0fbfea22.png">
 
 The objective of the game is to get as close to 21 without going over. The player whose card values in hand total higher than the other's without going over 21 is the winner. If the player decides to hit, another card is drawn from the deck and placed in that player's hand. If the player hits and their total hand goes over 21, they lose the round and the money they bet.
+
+<img width="453" alt="Screen Shot 2022-03-01 at 7 55 39 PM" src="https://user-images.githubusercontent.com/54502182/156274146-64a1d1c0-fbb7-4071-8598-74b1a90dd815.png">

@@ -20,6 +20,7 @@ public class Main {
 		
 		//Begin game
 		while(beginGame) {
+			
 			System.out.println("You are starting with $" + player.getMoney() + ", Would you like to play a hand? ");
 			String response = scan.next();
 			if(response.equals("yes")) {
@@ -45,12 +46,22 @@ public class Main {
 							System.out.println("Blackjack! You win " + (bet * 1.5));
 							player.setMoney(player.getMoney() + (bet * 1.5));
 							start = false;
+							
+							//shuffle cards back to deck
+							dealer.addCardsBackToDeck(player.getHand());
+							dealer.addCardsBackToDeck(dealer.showHand());
+							
 							player.getHand().clear();
 							dealer.showHand().clear();
 							break;
 						}else if(player.getHandTotal() == 21 && dealer.getHandTotal() == 21) {
 							System.out.println("You both got a natural blackjack! Tie! All bets are returned");
 							start = false;
+							
+							//shuffle cards back to deck
+							dealer.addCardsBackToDeck(player.getHand());
+							dealer.addCardsBackToDeck(dealer.showHand());
+							
 							player.getHand().clear();
 							dealer.showHand().clear();
 							break;
@@ -78,6 +89,10 @@ public class Main {
 									player.setMoney(currentMoney -= bet); 
 									hitOrStay = false;
 									start = false;
+									
+									//shuffle cards back to deck
+									dealer.addCardsBackToDeck(player.getHand());
+									dealer.addCardsBackToDeck(dealer.showHand());
 										
 									dealer.showHand().clear();
 									player.getHand().clear();
@@ -128,6 +143,10 @@ public class Main {
 									
 								hitOrStay = false;
 								start = false;
+								
+								//shuffle cards back to deck
+								dealer.addCardsBackToDeck(player.getHand());
+								dealer.addCardsBackToDeck(dealer.showHand());
 								dealer.showHand().clear();
 								player.getHand().clear();
 								

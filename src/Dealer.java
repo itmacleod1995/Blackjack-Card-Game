@@ -85,6 +85,7 @@ public class Dealer {
 		this.hand.add(card4);
 		
 		System.out.println("The dealer is dealt: " + card3.getValue() + "" + card3.getSuite() + ", " + "Unknown");
+		
 	}
 	
 	/**
@@ -162,6 +163,17 @@ public class Dealer {
 		}
 		
 		return total;
+	}
+	
+	/**
+	 * Method that takes both players hands and puts them back into the deck
+	 * @param hand hand to be put back into deck
+	 */
+	public void addCardsBackToDeck(List<Card> hand) {
+		for(Card card : hand) {
+			this.deck.getDeck().add(card);
+		}
+		
 	}
 	
 	

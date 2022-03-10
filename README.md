@@ -13,3 +13,5 @@ The objective of the game is to get as close to 21 without going over. The playe
 If the player decides to stay, then the dealer decides if they want to hit or not. The dealer will stay if the value total of their hand is greater than or equal to 17. If their hand value is 16 or less, they must hit. If the dealer busts, the player wins the bet.
 
 <img width="480" alt="Screen Shot 2022-03-10 at 7 05 06 AM" src="https://user-images.githubusercontent.com/54502182/157658354-d6496fe3-e210-47bf-93a8-10ae16a7bd70.png">
+
+The game goes on until

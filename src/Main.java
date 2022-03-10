@@ -159,7 +159,7 @@ public class Main {
 					beginGame = false;
 				}
 			}else {
-				System.out.println("Goodbye");
+				System.out.println("Thank you for playing Blackjack. You have ended the game with $" + player.getMoney());
 				beginGame = false;
 			}
 		}

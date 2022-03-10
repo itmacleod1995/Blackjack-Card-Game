@@ -23,4 +23,4 @@ The game goes on until the player loses all their money or they decide not to pl
 <img width="504" alt="Screen Shot 2022-03-10 at 7 43 51 AM" src="https://user-images.githubusercontent.com/54502182/157664581-d35d7bf2-62b4-43b8-9616-a84c966d1eef.png">
 
 
-This game assumes aces are low.
+This game assumes aces are low. Jack, Queen, and King are all valued at 10. This is a 52 card deck with 4 suites, 13 cards in each suite.

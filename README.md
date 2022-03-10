@@ -14,7 +14,7 @@ If the player decides to stay, then the dealer decides if they want to hit or no
 
 <img width="480" alt="Screen Shot 2022-03-10 at 7 05 06 AM" src="https://user-images.githubusercontent.com/54502182/157658354-d6496fe3-e210-47bf-93a8-10ae16a7bd70.png">
 
-The game goes on until the player loses all their money. Before each hand, all previously dealt cards are reshuffled back into the deck. If a player is naturally dealt a total value of 21, that is a Blackjack and the player receives 1.5x their original bet. If there is a tie, the bet is returned to the player. 
+The game goes on until the player loses all their money or they decide not to play anymore. Before each hand, all previously dealt cards are reshuffled back into the deck. If a player is naturally dealt a total value of 21, that is a Blackjack and the player receives 1.5x their original bet. If there is a tie, the bet is returned to the player. 
 
 <img width="555" alt="Screen Shot 2022-03-10 at 7 38 46 AM" src="https://user-images.githubusercontent.com/54502182/157663588-3958ebbe-2364-45a4-965c-53c7e98aa04f.png">
 
